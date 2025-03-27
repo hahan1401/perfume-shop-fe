@@ -1,0 +1,30 @@
+@reference "tailwindcss";
+
+.buttonWrapper {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 0;
+    background-color: color-mix(in oklab, var(--primary-foreground) 60%, transparent);
+    transition: all 0.4s ease;
+    border-radius: inherit;
+  }
+
+  &[data-variant='secondary'] {
+    &::before {
+      /* background-color: color-mix(in oklab, var(--destructive) 60%, transparent); */
+    }
+  }
+
+  &:hover {
+    &::before {
+      left: 0;
+      width: 100%;
+    }
+  }
+}

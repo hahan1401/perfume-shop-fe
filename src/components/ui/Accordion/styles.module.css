@@ -1,0 +1,9 @@
+.arcodingContentWrapper {
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  max-height: 0px;
+
+  &[data-open='true'] {
+    max-height: var(--max-height);
+  }
+}
