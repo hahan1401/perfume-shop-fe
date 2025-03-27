@@ -19,7 +19,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className="mdl-js"
+    >
       <body className={`${dosis.variable} font-[family-name:var(--font-dosis)] antialiased`}>
         <Header />
         {children}

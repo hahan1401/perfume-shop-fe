@@ -25,7 +25,7 @@ function HoverCardTrigger({ ...props }: React.ComponentProps<typeof HoverCardPri
     <HoverCardPrimitive.Trigger
       data-slot="hover-card-trigger"
       {...props}
-      suppressHydrationWarning={true}
+      asChild={true}
     />
   );
 }

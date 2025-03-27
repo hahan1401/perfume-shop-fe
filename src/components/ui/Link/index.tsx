@@ -11,9 +11,8 @@ const Link = ({ className, children, showUnderScore = false, ...props }: NextLin
   return (
     <NextLink
       className={cn(styles.nextLinkWrapper, className)}
-      {...props}
-      suppressHydrationWarning={true}
       data-show-under-score={showUnderScore}
+      {...props}
     >
       {children}
     </NextLink>

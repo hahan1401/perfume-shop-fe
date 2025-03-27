@@ -20,7 +20,7 @@ const eslintConfig = [
           args: 'after-used',
           ignoreRestSiblings: false,
           varsIgnorePattern: '_+',
-          argsIgnorePattern: '_+',
+          argsIgnorePattern: '.*',
         },
       ],
       'react/no-unescaped-entities': ['warn'],

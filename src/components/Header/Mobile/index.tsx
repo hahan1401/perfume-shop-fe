@@ -2,7 +2,7 @@
 
 import Accordion from '@/components/ui/Accordion';
 import { Button } from '@/components/ui/Button';
-import { Drawer, DrawerClose, DrawerContent, DrawerHeader, DrawerTrigger } from '@/components/ui/Drawer';
+import { Drawer, DrawerClose, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/Drawer';
 import Link from '@/components/ui/Link';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
@@ -17,6 +17,7 @@ const MobileHeader = ({ brands, perfumeCollentions }: MobileHeaderProps) => {
           <Menu className="h-[30px] w-[30px] cursor-pointer" />
         </DrawerTrigger>
         <DrawerContent className="!w-56">
+          <DrawerTitle></DrawerTitle>
           <DrawerHeader>
             <DrawerClose>
               <X className="float-right" />
@@ -47,6 +48,7 @@ const MobileHeader = ({ brands, perfumeCollentions }: MobileHeaderProps) => {
               items={perfumeCollentions}
               renderItem={(item) => (
                 <Link
+                  key={item._id}
                   showUnderScore={true}
                   href={'/'}
                 >
@@ -66,6 +68,7 @@ const MobileHeader = ({ brands, perfumeCollentions }: MobileHeaderProps) => {
               items={brands}
               renderItem={(item) => (
                 <Link
+                  key={item._id}
                   showUnderScore={true}
                   href={'/'}
                 >
