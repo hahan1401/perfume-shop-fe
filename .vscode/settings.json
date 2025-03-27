@@ -19,5 +19,8 @@
     "source.organizeImports": "always",
     "source.removeUnusedImports": "always",
     "source.fixAll.ts": "always"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }

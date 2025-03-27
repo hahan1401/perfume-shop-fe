@@ -31,9 +31,9 @@ const DesktopHeader = ({ brands, perfumeCollentions }: DestopHeaderProps) => {
   }, []);
 
   return (
-    <header
+    <div
       className={cn(
-        `fixed top-0 w-full items-center justify-between px-10 py-4`,
+        `fixed top-0 z-10 w-full items-center justify-between px-10 py-4`,
         isShowHeader ? '' : 'hidden',
         isAtTopPage ? 'bg-transparent' : 'bg-white',
         'hidden md:flex',
@@ -115,7 +115,7 @@ const DesktopHeader = ({ brands, perfumeCollentions }: DestopHeaderProps) => {
         </Link>
       </div>
       <Button onClick={() => console.log('13123')}>Contact consulting</Button>
-    </header>
+    </div>
   );
 };
 

@@ -9,7 +9,7 @@ const Header = async () => {
   const brands = getFulfilledResponse(_brand);
   const perfumeCollections = getFulfilledResponse(_perfumeCollections);
   return (
-    <>
+    <header>
       <DesktopHeader
         brands={brands?.responseData?.data ?? []}
         perfumeCollentions={perfumeCollections?.responseData?.data ?? []}
@@ -18,7 +18,7 @@ const Header = async () => {
         brands={brands?.responseData?.data ?? []}
         perfumeCollentions={perfumeCollections?.responseData?.data ?? []}
       />
-    </>
+    </header>
   );
 };
 

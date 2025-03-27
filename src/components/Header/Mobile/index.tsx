@@ -11,7 +11,7 @@ import { MobileHeaderProps } from './types';
 
 const MobileHeader = ({ brands, perfumeCollentions }: MobileHeaderProps) => {
   return (
-    <header className={cn('flex items-center justify-between px-4 py-2 md:hidden')}>
+    <div className={cn('flex items-center justify-between px-4 py-2 md:hidden')}>
       <Drawer direction="left">
         <DrawerTrigger>
           <Menu className="h-[30px] w-[30px] cursor-pointer" />
@@ -98,7 +98,7 @@ const MobileHeader = ({ brands, perfumeCollentions }: MobileHeaderProps) => {
         height={30}
       />
       <Button onClick={() => console.log('13123')}>Contact consulting</Button>
-    </header>
+    </div>
   );
 };
 
