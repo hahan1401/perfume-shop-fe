@@ -1,5 +1,4 @@
 export default function Home() {
-  const __ = 10;
   return (
     <div className="">
       <p className="font-thin">Han Viet Ha ha'han</p>

@@ -1,3 +1,4 @@
+import Header from '@/components/Header';
 import type { Metadata } from 'next';
 import { Dosis } from 'next/font/google';
 import './globals.css';
@@ -19,7 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${dosis.variable} font-[family-name:var(--font-dosis)] antialiased`}>{children}</body>
+      <body className={`${dosis.variable} font-[family-name:var(--font-dosis)] antialiased`}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
