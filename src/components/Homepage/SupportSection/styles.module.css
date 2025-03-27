@@ -1,0 +1,29 @@
+.supportSectionWrapper {
+  position: relative;
+  overflow: hidden;
+  padding: 2.1rem 0;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+
+  :global(.inner) {
+    width: fit-content;
+    display: flex;
+    animation: loop 20s linear infinite;
+    gap: 2rem;
+
+    :global(.tag) {
+      white-space: nowrap;
+      font-size: 1.125rem;
+      letter-spacing: 0.1rem;
+    }
+  }
+}
+
+@keyframes loop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

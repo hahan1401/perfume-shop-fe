@@ -1,8 +1,7 @@
 import { getBrands } from '@/api/brand';
 import { getPerfumeCollections } from '@/api/perfumeCollections';
 import { getFulfilledResponse } from '@/api/utils';
-import DesktopHeader from './Desktop';
-import MobileHeader from './Mobile';
+import HeaderWrapper from './HeaderWrapper';
 
 const Header = async () => {
   const [_brand, _perfumeCollections] = await Promise.allSettled([getBrands(), getPerfumeCollections()]);
@@ -10,13 +9,9 @@ const Header = async () => {
   const perfumeCollections = getFulfilledResponse(_perfumeCollections);
   return (
     <header>
-      <DesktopHeader
+      <HeaderWrapper
         brands={brands?.responseData?.data ?? []}
-        perfumeCollentions={perfumeCollections?.responseData?.data ?? []}
-      />
-      <MobileHeader
-        brands={brands?.responseData?.data ?? []}
-        perfumeCollentions={perfumeCollections?.responseData?.data ?? []}
+        perfumeCollections={perfumeCollections?.responseData?.data ?? []}
       />
     </header>
   );

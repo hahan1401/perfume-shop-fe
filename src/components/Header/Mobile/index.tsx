@@ -9,9 +9,9 @@ import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import { MobileHeaderProps } from './types';
 
-const MobileHeader = ({ brands, perfumeCollentions }: MobileHeaderProps) => {
+const MobileHeader = ({ brands, perfumeCollections }: MobileHeaderProps) => {
   return (
-    <div className={cn('flex items-center justify-between px-4 py-2 md:hidden')}>
+    <div className={cn('fixed top-0 z-10 flex w-full items-center justify-between px-4 py-2 md:hidden')}>
       <Drawer direction="left">
         <DrawerTrigger>
           <Menu className="h-[30px] w-[30px] cursor-pointer" />
@@ -45,7 +45,7 @@ const MobileHeader = ({ brands, perfumeCollentions }: MobileHeaderProps) => {
                   Collections
                 </Link>
               )}
-              items={perfumeCollentions}
+              items={perfumeCollections}
               renderItem={(item) => (
                 <Link
                   key={item._id}

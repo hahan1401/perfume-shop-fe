@@ -3,5 +3,5 @@ import { IPerffumeCollection } from '@/types/perfumeCollections';
 
 export interface DestopHeaderProps {
   brands: IBrand[];
-  perfumeCollentions: IPerffumeCollection[];
+  perfumeCollections: IPerffumeCollection[];
 }

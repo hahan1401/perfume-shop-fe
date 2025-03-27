@@ -1,10 +1,7 @@
 .heroSectionWrapper {
-  height: calc(100vh - 7rem);
+  height: calc(100vh - 6rem);
 
   :global(.swiper) {
     height: 100%;
-    /* :global(.swiper-wrapper) {
-      height: 100%;
-    } */
   }
 }
