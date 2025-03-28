@@ -3,6 +3,11 @@
 .buttonWrapper {
   position: relative;
 
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
   &::before {
     position: absolute;
     content: '';
@@ -15,16 +20,17 @@
     border-radius: inherit;
   }
 
-  &[data-variant='secondary'] {
-    &::before {
-      /* background-color: color-mix(in oklab, var(--destructive) 60%, transparent); */
-    }
-  }
-
   &:hover {
     &::before {
       left: 0;
       width: 100%;
+    }
+
+    &[data-variant='outline'] {
+      color: #fff !important;
+      &::before {
+        background-color: color-mix(in oklab, var(--primary) 80%, transparent);
+      }
     }
   }
 }

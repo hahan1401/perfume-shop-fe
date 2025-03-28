@@ -11,4 +11,5 @@ export interface IPerfume {
   deletedAt?: string;
   remaining?: number;
   soldAmount?: number;
+  imageUrl: string;
 }

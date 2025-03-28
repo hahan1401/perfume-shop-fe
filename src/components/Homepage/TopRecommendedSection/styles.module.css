@@ -1,0 +1,26 @@
+.topRecommendedSectionWrapper {
+  :global(.swiper-pagination) {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: fit-content;
+
+    @media (max-width: 768px) {
+      position: static;
+      width: 100%;
+      margin-top: 1rem;
+    }
+  }
+
+  :global(.swiper-pagination-bullet) {
+    width: 100px;
+    height: 100px;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 0.7;
+  }
+
+  :global(.swiper-pagination-bullet-active) {
+    opacity: 1;
+  }
+}
