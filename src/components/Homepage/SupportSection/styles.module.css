@@ -5,13 +5,13 @@
   background-color: var(--primary);
   color: var(--primary-foreground);
 
-  :global(.inner) {
+  & :global(.inner) {
     width: fit-content;
     display: flex;
     animation: loop 20s linear infinite;
     gap: 2rem;
 
-    :global(.tag) {
+    & :global(.tag) {
       white-space: nowrap;
       font-size: 1.125rem;
       letter-spacing: 0.1rem;

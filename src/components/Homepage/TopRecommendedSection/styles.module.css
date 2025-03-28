@@ -1,5 +1,5 @@
 .topRecommendedSectionWrapper {
-  :global(.swiper-pagination) {
+  & :global(.swiper-pagination) {
     position: absolute;
     left: 50%;
     bottom: 0;
@@ -12,7 +12,7 @@
     }
   }
 
-  :global(.swiper-pagination-bullet) {
+  & :global(.swiper-pagination-bullet) {
     width: 100px;
     height: 100px;
     border-radius: 0;
@@ -20,7 +20,7 @@
     opacity: 0.7;
   }
 
-  :global(.swiper-pagination-bullet-active) {
+  & :global(.swiper-pagination-bullet-active) {
     opacity: 1;
   }
 }
