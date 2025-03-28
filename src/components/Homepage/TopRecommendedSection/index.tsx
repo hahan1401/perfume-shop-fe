@@ -66,37 +66,6 @@ const TopRecommendedSection = ({ perfumes }: ITopRecommendedSectionProps) => {
           </SwiperSlide>
         ))}
       </Swiper>
-      {/* {perfumes.map((item, index) => (
-        <div
-          key={item._id}
-          className={cn(activeIndex === index ? 'flex' : 'hidden')}
-        >
-          <div className="flex-1">
-            <div className="mx-auto w-[80%]">
-              <Image
-                alt={item.name}
-                src={'/home/hero-section/IMG_2144.jpg'}
-                ratio="1:1"
-              />
-            </div>
-          </div>
-          <div className="flex flex-1 flex-col gap-4">
-            <h3 className="text-2xl font-semibold">{item.name}</h3>
-            <p className="text-sm">{item.description}</p>
-            <Button
-              variant={'outline'}
-              className="w-fit rounded-2xl"
-            >
-              <Link
-                href={'/'}
-                className="flex items-center gap-2"
-              >
-                Buy Now! <ArrowRight />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      ))} */}
     </Container>
   );
 };

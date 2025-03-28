@@ -1,0 +1,23 @@
+.collectionsSectionWrapper {
+  & :global(.card-wrapper) {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: '';
+      z-index: 1;
+      inset: 1rem;
+      border: 1px solid var(--primary-foreground);
+      border-radius: inherit;
+    }
+  }
+
+  & :global(.swiper-slide) {
+    scale: 0.9;
+    transition: all 0.3s ease;
+  }
+
+  & :global(.swiper-slide-active) {
+    scale: 1;
+  }
+}
