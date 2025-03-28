@@ -109,6 +109,26 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+@utility underscore {
+  position: relative;
+  &::after {
+    position: absolute;
+    content: '';
+    width: 0;
+    left: 0;
+    height: 0.125rem;
+    bottom: 0;
+    transition: 0.2s all ease;
+    background-color: var(--primary);
+  }
+
+  &:hover {
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

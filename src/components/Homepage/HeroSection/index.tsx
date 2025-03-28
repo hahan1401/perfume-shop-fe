@@ -32,7 +32,7 @@ const SLIDES = [
 
 const HeroSection = () => {
   return (
-    <div className={styles.heroSectionWrapper}>
+    <section className={styles.heroSectionWrapper}>
       <Swiper
         modules={[Autoplay, EffectFade]}
         spaceBetween={50}
@@ -55,7 +55,7 @@ const HeroSection = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </section>
   );
 };
 

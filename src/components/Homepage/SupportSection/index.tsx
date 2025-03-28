@@ -4,7 +4,7 @@ const SUPPORT_ITEMS = ['ĐẢM BẢO CHẤT LƯỢNG', 'HỖ TRỢ NHANH CHÓNG'
 
 const SupportSection = () => {
   return (
-    <div className={styles.supportSectionWrapper}>
+    <section className={styles.supportSectionWrapper}>
       <div className="inner">
         {SUPPORT_ITEMS.map((item) => (
           <div
@@ -39,7 +39,7 @@ const SupportSection = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

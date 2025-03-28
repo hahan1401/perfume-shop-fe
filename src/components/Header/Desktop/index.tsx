@@ -2,9 +2,9 @@
 
 import { Button } from '@/components/ui/Button';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/HoverCard';
-import Link from '@/components/ui/Link';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import Link from 'next/link';
 import { DestopHeaderProps } from './types';
 
 const DesktopHeader = ({ brands, perfumeCollections }: DestopHeaderProps) => {
@@ -18,33 +18,17 @@ const DesktopHeader = ({ brands, perfumeCollections }: DestopHeaderProps) => {
       />
 
       <div className="flex items-center gap-4">
-        <Link
-          showUnderScore={true}
-          href={'/'}
-        >
-          Home
-        </Link>
-        <Link
-          showUnderScore={true}
-          href={'/'}
-        >
-          About
-        </Link>
+        <Link href={'/'}>Home</Link>
+        <Link href={'/'}>About</Link>
         <HoverCard>
           <HoverCardTrigger>
-            <Link
-              showUnderScore={true}
-              href={'/'}
-            >
-              Collections
-            </Link>
+            <Link href={'/'}>Collections</Link>
           </HoverCardTrigger>
           <HoverCardContent className="flex flex-col gap-2">
             {perfumeCollections.map((item) => (
               <Link
                 href={`/products?collection=${encodeURIComponent(item.name)}`}
                 key={item._id}
-                showUnderScore={true}
               >
                 {item.name}
               </Link>
@@ -53,37 +37,21 @@ const DesktopHeader = ({ brands, perfumeCollections }: DestopHeaderProps) => {
         </HoverCard>
         <HoverCard>
           <HoverCardTrigger>
-            <Link
-              showUnderScore={true}
-              href={'/'}
-            >
-              Brands
-            </Link>
+            <Link href={'/'}>Brands</Link>
           </HoverCardTrigger>
           <HoverCardContent className="flex flex-col gap-2">
             {brands.map((brand) => (
               <Link
                 href={`/products?brand=${encodeURIComponent(brand.name)}`}
                 key={brand._id}
-                showUnderScore={true}
               >
                 {brand.name}
               </Link>
             ))}
           </HoverCardContent>
         </HoverCard>
-        <Link
-          showUnderScore={true}
-          href={'/'}
-        >
-          News
-        </Link>
-        <Link
-          showUnderScore={true}
-          href={'/'}
-        >
-          Contact
-        </Link>
+        <Link href={'/'}>News</Link>
+        <Link href={'/'}>Contact</Link>
       </div>
       <Button onClick={() => console.log('13123')}>Contact consulting</Button>
     </div>

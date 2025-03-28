@@ -3,10 +3,10 @@
 import Accordion from '@/components/ui/Accordion';
 import { Button } from '@/components/ui/Button';
 import { Drawer, DrawerClose, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/Drawer';
-import Link from '@/components/ui/Link';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { MobileHeaderProps } from './types';
 
 const MobileHeader = ({ brands, perfumeCollections }: MobileHeaderProps) => {
@@ -24,32 +24,14 @@ const MobileHeader = ({ brands, perfumeCollections }: MobileHeaderProps) => {
             </DrawerClose>
           </DrawerHeader>
           <div className="flex flex-col gap-2 px-2">
-            <Link
-              showUnderScore={true}
-              href={'/'}
-            >
-              Home
-            </Link>
-            <Link
-              showUnderScore={true}
-              href={'/'}
-            >
-              About
-            </Link>
+            <Link href={'/'}>Home</Link>
+            <Link href={'/'}>About</Link>
             <Accordion
-              renderTriggerItem={() => (
-                <Link
-                  showUnderScore={true}
-                  href={'/'}
-                >
-                  Collections
-                </Link>
-              )}
+              renderTriggerItem={() => <Link href={'/'}>Collections</Link>}
               items={perfumeCollections}
               renderItem={(item) => (
                 <Link
                   key={item._id}
-                  showUnderScore={true}
                   href={'/'}
                 >
                   {item.name}
@@ -57,37 +39,19 @@ const MobileHeader = ({ brands, perfumeCollections }: MobileHeaderProps) => {
               )}
             />
             <Accordion
-              renderTriggerItem={() => (
-                <Link
-                  showUnderScore={true}
-                  href={'/'}
-                >
-                  Brands
-                </Link>
-              )}
+              renderTriggerItem={() => <Link href={'/'}>Brands</Link>}
               items={brands}
               renderItem={(item) => (
                 <Link
                   key={item._id}
-                  showUnderScore={true}
                   href={'/'}
                 >
                   {item.name}
                 </Link>
               )}
             />
-            <Link
-              showUnderScore={true}
-              href={'/'}
-            >
-              News
-            </Link>
-            <Link
-              showUnderScore={true}
-              href={'/'}
-            >
-              Contact
-            </Link>
+            <Link href={'/'}>News</Link>
+            <Link href={'/'}>Contact</Link>
           </div>
         </DrawerContent>
       </Drawer>
