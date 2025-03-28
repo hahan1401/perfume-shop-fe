@@ -22,7 +22,9 @@ const HeaderWrapper = ({
     if (typeof window !== undefined) {
       lastSrollYPosition.current = window.scrollY;
       setIsAtTopPage(window.scrollY === 0);
+
       const handleScroll = () => {
+        console.log('window.scrollY', window.scrollY);
         setIsAtTopPage(window.scrollY === 0);
         if (window.scrollY > lastSrollYPosition.current) {
           setIsShowHeader(false);
@@ -36,14 +38,22 @@ const HeaderWrapper = ({
   }, []);
 
   return (
-    <div className={cn(isShowHeader ? '' : 'hidden', isAtTopPage ? 'bg-transparent' : 'bg-white')}>
+    <div
+      className={cn(
+        'fixed top-0 z-10 w-full overflow-hidden delay-100 duration-300',
+        isShowHeader ? 'max-h-24' : 'max-h-0',
+        isAtTopPage ? 'bg-transparent' : 'bg-white',
+      )}
+    >
       <DesktopHeader
         brands={brands}
         perfumeCollections={perfumeCollections}
+        isAtTopPage={isAtTopPage}
       />
       <MobileHeader
         brands={brands}
         perfumeCollections={perfumeCollections}
+        isAtTopPage={isAtTopPage}
       />
     </div>
   );

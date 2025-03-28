@@ -7,9 +7,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { DestopHeaderProps } from './types';
 
-const DesktopHeader = ({ brands, perfumeCollections }: DestopHeaderProps) => {
+const DesktopHeader = ({ brands, perfumeCollections, isAtTopPage }: DestopHeaderProps) => {
   return (
-    <div className={cn(`fixed top-0 z-10 w-full items-center justify-between px-10 py-4`, 'hidden md:flex')}>
+    <div className={cn(`items-center justify-between px-10 py-4`, 'hidden md:flex')}>
       <Image
         src={'/logo.png'}
         alt=""
@@ -18,11 +18,26 @@ const DesktopHeader = ({ brands, perfumeCollections }: DestopHeaderProps) => {
       />
 
       <div className="flex items-center gap-4">
-        <Link href={'/'}>Home</Link>
-        <Link href={'/'}>About</Link>
+        <Link
+          className={isAtTopPage ? 'text-primary-foreground' : 'text-primary'}
+          href={'/'}
+        >
+          Home
+        </Link>
+        <Link
+          className={isAtTopPage ? 'text-primary-foreground' : 'text-primary'}
+          href={'/'}
+        >
+          About
+        </Link>
         <HoverCard>
           <HoverCardTrigger>
-            <Link href={'/'}>Collections</Link>
+            <Link
+              className={isAtTopPage ? 'text-primary-foreground' : 'text-primary'}
+              href={'/'}
+            >
+              Collections
+            </Link>
           </HoverCardTrigger>
           <HoverCardContent className="flex flex-col gap-2">
             {perfumeCollections.map((item) => (
@@ -37,7 +52,12 @@ const DesktopHeader = ({ brands, perfumeCollections }: DestopHeaderProps) => {
         </HoverCard>
         <HoverCard>
           <HoverCardTrigger>
-            <Link href={'/'}>Brands</Link>
+            <Link
+              className={isAtTopPage ? 'text-primary-foreground' : 'text-primary'}
+              href={'/'}
+            >
+              Brands
+            </Link>
           </HoverCardTrigger>
           <HoverCardContent className="flex flex-col gap-2">
             {brands.map((brand) => (
@@ -50,10 +70,25 @@ const DesktopHeader = ({ brands, perfumeCollections }: DestopHeaderProps) => {
             ))}
           </HoverCardContent>
         </HoverCard>
-        <Link href={'/'}>News</Link>
-        <Link href={'/'}>Contact</Link>
+        <Link
+          className={isAtTopPage ? 'text-primary-foreground' : 'text-primary'}
+          href={'/'}
+        >
+          News
+        </Link>
+        <Link
+          className={isAtTopPage ? 'text-primary-foreground' : 'text-primary'}
+          href={'/'}
+        >
+          Contact
+        </Link>
       </div>
-      <Button onClick={() => console.log('13123')}>Contact consulting</Button>
+      <Button
+        variant={isAtTopPage ? 'secondary' : 'default'}
+        onClick={() => console.log('13123')}
+      >
+        Contact consulting
+      </Button>
     </div>
   );
 };

@@ -9,9 +9,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { MobileHeaderProps } from './types';
 
-const MobileHeader = ({ brands, perfumeCollections }: MobileHeaderProps) => {
+const MobileHeader = ({ brands, perfumeCollections, isAtTopPage }: MobileHeaderProps) => {
   return (
-    <div className={cn('fixed top-0 z-10 flex w-full items-center justify-between px-4 py-2 md:hidden')}>
+    <div className={cn('flex items-center justify-between px-4 py-2 md:hidden')}>
       <Drawer direction="left">
         <DrawerTrigger>
           <Menu className="h-[30px] w-[30px] cursor-pointer" />
@@ -61,7 +61,12 @@ const MobileHeader = ({ brands, perfumeCollections }: MobileHeaderProps) => {
         width={100}
         height={30}
       />
-      <Button onClick={() => console.log('13123')}>Contact consulting</Button>
+      <Button
+        variant={isAtTopPage ? 'secondary' : 'default'}
+        onClick={() => console.log('13123')}
+      >
+        Contact consulting
+      </Button>
     </div>
   );
 };

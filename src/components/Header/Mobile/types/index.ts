@@ -4,4 +4,5 @@ import { IPerffumeCollection } from '@/types/perfumeCollections';
 export interface MobileHeaderProps {
   brands: IBrand[];
   perfumeCollections: IPerffumeCollection[];
+  isAtTopPage: boolean;
 }

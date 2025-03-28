@@ -2,6 +2,7 @@
 
 import Container from '@/components/ui/Container';
 import Image from '@/components/ui/Image';
+import SectionTitle from '@/components/ui/SectionTitle';
 import Link from 'next/link';
 import { useRef } from 'react';
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
@@ -17,10 +18,12 @@ const CollectionsSection = ({ perfumeCollections }: ICollectionsSectionProps) =>
 
   return (
     <Container className={`${styles.collectionsSectionWrapper} sm:px-32 lg:px-40`}>
+      <SectionTitle>Our collections</SectionTitle>
       <Swiper
         slidesPerView={3}
         centeredSlides={true}
         ref={swiperRef}
+        initialSlide={1}
       >
         {perfumeCollections.map((item, index) => (
           <SwiperSlide
