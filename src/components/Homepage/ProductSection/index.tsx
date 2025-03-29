@@ -49,7 +49,7 @@ const ProductSection = ({ perfumes }: IProductSectionProps) => {
           .concat(perfumes)
           .concat(perfumes)
           .map((item) => (
-            <SwiperSlide key={item._id}>
+            <SwiperSlide key={`${item._id}-${Math.random()}`}>
               <PerfumeCard item={item} />
             </SwiperSlide>
           ))}
