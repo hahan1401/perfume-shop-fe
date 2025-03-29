@@ -12,7 +12,7 @@ const ratioMapping: Record<NonNullable<IImageProps['ratio']>, string> = {
   '16:9': 'pt-[177.77778%]',
 };
 
-const Image = ({ ratio = '1:1', style, className, ...props }: IImageProps) => {
+const Image = ({ ratio = '1:1', style, className, children, ...props }: IImageProps) => {
   return (
     <div className={cn('relative', className, ratioMapping[ratio])}>
       <NextImage
@@ -20,6 +20,7 @@ const Image = ({ ratio = '1:1', style, className, ...props }: IImageProps) => {
         style={{ objectFit: 'cover', ...style }}
         fill={true}
       />
+      {children}
     </div>
   );
 };

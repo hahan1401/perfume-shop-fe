@@ -1,0 +1,30 @@
+.perfumeCardWrapper {
+  & :global(.product-image-wrapper) {
+    border-radius: var(--radius-xs);
+    overflow: hidden;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: '';
+      inset: 0;
+      background-color: transparent;
+      transition: all 0.3s ease;
+    }
+
+    & :global(.product-image) {
+      transition: all 0.3s ease;
+    }
+  }
+  &:hover {
+    & :global(.product-image-wrapper) {
+      &::before {
+        background-color: color-mix(in oklab, var(--primary) 30%, transparent);
+      }
+
+      & :global(.product-image) {
+        transform: rotate(10deg);
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/Button';
 import Container from '@/components/ui/Container';
 import Image from '@/components/ui/Image';
+import { cn } from '@/lib/utils';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import 'swiper/css';
@@ -27,7 +28,7 @@ const TopRecommendedSection = ({ perfumes }: ITopRecommendedSectionProps) => {
   };
 
   return (
-    <Container className={styles.topRecommendedSectionWrapper}>
+    <Container className={cn('lg:px-36', styles.topRecommendedSectionWrapper)}>
       <Swiper
         modules={[Pagination]}
         pagination={pagination}

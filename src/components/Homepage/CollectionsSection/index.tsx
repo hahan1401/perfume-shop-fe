@@ -5,6 +5,7 @@ import Image from '@/components/ui/Image';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Link from 'next/link';
 import { useRef } from 'react';
+import 'swiper/css';
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 import styles from './styles.module.css';
 import { ICollectionsSectionProps } from './types';

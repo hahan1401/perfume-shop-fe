@@ -1,0 +1,18 @@
+.productSectionWrapper {
+  & :global(.swiper-pagination) {
+    position: static;
+    margin-top: 0rem;
+    width: 100% !important;
+    transform: translateX(0) !important;
+
+    & :global(.swiper-pagination-bullet) {
+      width: 0.625rem;
+      height: 0.625rem;
+
+      @media (max-width: 768px) {
+        width: 0.5rem;
+        height: 0.5rem;
+      }
+    }
+  }
+}
