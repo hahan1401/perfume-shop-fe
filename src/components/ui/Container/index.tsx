@@ -10,7 +10,7 @@ const spacingTopMapping: Record<NonNullable<IContainerProps['spacingTop']>, stri
 const Container = ({ spacingTop = 'normal', className, fullScreen = false, ...props }: IContainerProps) => {
   return (
     <div
-      className={cn(fullScreen ? '' : 'container mx-auto px-2', className, spacingTopMapping[spacingTop])}
+      className={cn(fullScreen ? '' : 'container mx-auto px-2', spacingTopMapping[spacingTop], className)}
       {...props}
     />
   );
