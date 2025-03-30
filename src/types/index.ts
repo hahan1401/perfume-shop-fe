@@ -1,6 +1,9 @@
-export type ResponseData<T> =
-  | { responseData: { data: T; total?: number }; error: undefined }
-  | { responseData: undefined };
+export interface ResponseDataObject<T> {
+  data: T;
+  total?: number;
+}
+
+export type ResponseData<T> = { responseData: ResponseDataObject<T>; error: undefined } | { responseData: undefined };
 
 export interface PromiseFulfilledResult<T> {
   status: 'fulfilled';

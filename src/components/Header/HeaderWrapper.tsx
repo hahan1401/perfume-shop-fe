@@ -24,7 +24,6 @@ const HeaderWrapper = ({
       setIsAtTopPage(window.scrollY === 0);
 
       const handleScroll = () => {
-        console.log('window.scrollY', window.scrollY);
         setIsAtTopPage(window.scrollY === 0);
         if (window.scrollY > lastSrollYPosition.current) {
           setIsShowHeader(false);

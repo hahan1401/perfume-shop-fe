@@ -1,6 +1,8 @@
 'use client';
 
+import { ResponseDataObject } from '@/types';
 import { IBrand } from '@/types/brand';
+import { IPerfume } from '@/types/perfume';
 import { IPerffumeCollection } from '@/types/perfumeCollections';
 import 'react-range-slider-input/dist/style.css';
 import PageContainer from '../ui/PageContainer';
@@ -9,6 +11,7 @@ import Filter from './compoments/Filter';
 interface ProductListPageProps {
   brands: IBrand[];
   perfumeCollections: IPerffumeCollection[];
+  initData?: ResponseDataObject<IPerfume[]>;
 }
 
 const ProductListPage = ({ brands, perfumeCollections }: ProductListPageProps) => {
