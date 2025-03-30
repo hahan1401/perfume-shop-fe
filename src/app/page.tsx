@@ -2,6 +2,7 @@ import { getBrands } from '@/api/brand';
 import { getPerfumeCollections } from '@/api/perfumeCollections';
 import { getPerfumes } from '@/api/perfumes';
 import { getFulfilledResponse } from '@/api/utils';
+import AboutSection from '@/components/Homepage/AboutSection';
 import BrandSection from '@/components/Homepage/BrandSection';
 import CollectionsSection from '@/components/Homepage/CollectionsSection';
 import HeroSection from '@/components/Homepage/HeroSection';
@@ -26,6 +27,7 @@ export default async function Home() {
       <CollectionsSection perfumeCollections={perfumeCollections?.responseData?.data ?? []} />
       <ProductSection perfumes={perfumes?.responseData?.data ?? []} />
       <BrandSection brands={brands?.responseData?.data ?? []} />
+      <AboutSection />
     </div>
   );
 }

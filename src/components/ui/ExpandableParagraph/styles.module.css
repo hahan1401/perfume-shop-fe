@@ -1,0 +1,11 @@
+.expandableParagraphWrapper {
+  & :global(.expandable-element) {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  & :global(.expandable-element.open) {
+    max-height: var(--max-height);
+  }
+}
