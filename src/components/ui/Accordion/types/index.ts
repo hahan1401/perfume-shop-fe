@@ -1,7 +1,8 @@
-import { ReactNode } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 
-export interface IAccordionProps<T = unknown> {
+export interface IAccordionProps<T = unknown> extends HTMLAttributes<HTMLDivElement> {
   renderTriggerItem: () => ReactNode;
-  renderItem: (item: T) => ReactNode;
+  renderItems: (item: T[]) => ReactNode;
   items: T[];
+  defaultOpen?: boolean;
 }

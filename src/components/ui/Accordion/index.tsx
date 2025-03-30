@@ -2,20 +2,26 @@
 
 import { cn } from '@/lib/utils';
 import { ChevronDown } from 'lucide-react';
-import { CSSProperties, useRef, useState } from 'react';
+import { CSSProperties, useState } from 'react';
 import styles from './styles.module.css';
 import { IAccordionProps } from './types';
 
-const Accordion = <T,>({ renderItem, renderTriggerItem, items }: IAccordionProps<T>) => {
-  const [showArcoding, setShowArcoding] = useState(false);
-  const menuHeight = useRef<number | undefined>(0);
+const Accordion = <T,>({
+  renderItems,
+  renderTriggerItem,
+  items,
+  defaultOpen = false,
+  ...props
+}: IAccordionProps<T>) => {
+  const [showArcoding, setShowArcoding] = useState(defaultOpen);
+  const [menuHeight, setMenuHeight] = useState(0);
 
   const onTriggerElementClicked = () => {
     setShowArcoding((prev) => !prev);
   };
 
   return (
-    <div className="">
+    <div {...props}>
       <button
         onClick={() => {
           onTriggerElementClicked();
@@ -28,17 +34,18 @@ const Accordion = <T,>({ renderItem, renderTriggerItem, items }: IAccordionProps
 
       <div
         ref={(ref) => {
-          menuHeight.current = ref?.scrollHeight;
+          if (!menuHeight && ref?.scrollHeight) setMenuHeight(ref.scrollHeight);
         }}
         className={cn('top-full flex flex-col gap-2 pl-4', styles.arcodingContentWrapper)}
         data-open={showArcoding}
         style={
           {
-            '--max-height': `${menuHeight.current}px`,
+            '--max-height': `${menuHeight}px`,
           } as CSSProperties
         }
       >
-        {items.map((item) => renderItem(item))}
+        {/* {items.map((item) => renderItem(item))} */}
+        {renderItems(items)}
       </div>
     </div>
   );

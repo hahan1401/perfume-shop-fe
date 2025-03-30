@@ -1,0 +1,11 @@
+.inputRangeWrapper {
+  &[data-size='small'] {
+    & :global(.range-slider) {
+      height: 0.25rem;
+    }
+    & :global(.range-slider__thumb) {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+}

@@ -29,26 +29,30 @@ const MobileHeader = ({ brands, perfumeCollections, isAtTopPage }: MobileHeaderP
             <Accordion
               renderTriggerItem={() => <Link href={'/'}>Collections</Link>}
               items={perfumeCollections}
-              renderItem={(item) => (
-                <Link
-                  key={item._id}
-                  href={'/'}
-                >
-                  {item.name}
-                </Link>
-              )}
+              renderItems={(items) =>
+                items.map((item) => (
+                  <Link
+                    key={item._id}
+                    href={'/'}
+                  >
+                    {item.name}
+                  </Link>
+                ))
+              }
             />
             <Accordion
               renderTriggerItem={() => <Link href={'/'}>Brands</Link>}
               items={brands}
-              renderItem={(item) => (
-                <Link
-                  key={item._id}
-                  href={'/'}
-                >
-                  {item.name}
-                </Link>
-              )}
+              renderItems={(items) =>
+                items.map((item) => (
+                  <Link
+                    key={item._id}
+                    href={'/'}
+                  >
+                    {item.name}
+                  </Link>
+                ))
+              }
             />
             <Link href={'/'}>News</Link>
             <Link href={'/'}>Contact</Link>

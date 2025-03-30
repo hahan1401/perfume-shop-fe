@@ -1,17 +1,18 @@
-import { getBrands } from '@/api/brand';
-import { getPerfumeCollections } from '@/api/perfumeCollections';
-import { getFulfilledResponse } from '@/api/utils';
+import { IBrand } from '@/types/brand';
+import { IPerffumeCollection } from '@/types/perfumeCollections';
 import HeaderWrapper from './HeaderWrapper';
 
-const Header = async () => {
-  const [_brand, _perfumeCollections] = await Promise.allSettled([getBrands(), getPerfumeCollections()]);
-  const brands = getFulfilledResponse(_brand);
-  const perfumeCollections = getFulfilledResponse(_perfumeCollections);
+interface HeaderProps {
+  brands: IBrand[];
+  perfumeCollections: IPerffumeCollection[];
+}
+
+const Header = async ({ brands, perfumeCollections }: HeaderProps) => {
   return (
     <header>
       <HeaderWrapper
-        brands={brands?.responseData?.data ?? []}
-        perfumeCollections={perfumeCollections?.responseData?.data ?? []}
+        brands={brands}
+        perfumeCollections={perfumeCollections}
       />
     </header>
   );

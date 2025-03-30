@@ -1,3 +1,4 @@
+import { IPerffumeCollection } from '@/types/perfumeCollections';
 import Link from 'next/link';
 import Container from '../ui/Container';
 import Devider from '../ui/Devider';
@@ -7,7 +8,11 @@ import { Shopee } from '../ui/icons/components/Shopee';
 import { Tiktok } from '../ui/icons/components/Tiktok';
 import SectionTitle from './components/SectionTitle';
 
-const Footer = () => {
+interface FooterProps {
+  perfumeCollections: IPerffumeCollection[];
+}
+
+const Footer = ({ perfumeCollections }: FooterProps) => {
   return (
     <footer className="bg-primary/10 mt-[3rem] md:mt-[6rem]">
       <Container className="py-3 md:py-4">
@@ -58,24 +63,15 @@ const Footer = () => {
           <div className="col-span-1">
             <SectionTitle>Products</SectionTitle>
             <div className="flex flex-col gap-3 text-sm">
-              <Link
-                href={'#'}
-                className="underscore w-fit"
-              >
-                Male
-              </Link>
-              <Link
-                href={'#'}
-                className="underscore w-fit"
-              >
-                Female
-              </Link>
-              <Link
-                href={'#'}
-                className="underscore w-fit"
-              >
-                Unisex
-              </Link>
+              {perfumeCollections.map((item) => (
+                <Link
+                  key={item._id}
+                  href={'#'}
+                  className="underscore w-fit"
+                >
+                  {item.name}
+                </Link>
+              ))}
             </div>
           </div>
           <div className="col-span-3 md:col-span-2">
