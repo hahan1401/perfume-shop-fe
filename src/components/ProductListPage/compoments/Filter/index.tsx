@@ -1,27 +1,42 @@
+'use client';
+
 import Accordion from '@/components/ui/Accordion';
+import { Button } from '@/components/ui/Button';
 import { Checkbox } from '@/components/ui/Checkbox';
 import InputRange from '@/components/ui/InputRange';
 import { Label } from '@/components/ui/Label';
 import { toVietNamCurrency } from '@/lib/utils';
 import { IBrand } from '@/types/brand';
 import { IPerffumeCollection } from '@/types/perfumeCollections';
-import { useState } from 'react';
-import { ReactRangeSliderInputProps } from 'react-range-slider-input';
+
+type ChangeHandler = {
+  (type: 'brands' | 'collections', value: Set<string>): void;
+  (type: 'pricerange', value: [number, number]): void;
+};
 
 interface FilterProps {
   brands: IBrand[];
   perfumeCollections: IPerffumeCollection[];
+  collectionSelectedNames: Set<string>;
+  brandSelectedNames: Set<string>;
+  priceRange: [number, number];
+  onChange: ChangeHandler;
+  onSubmitFilter: () => void;
 }
 
-const MIN_PRICE = 0;
-const MAX_PRICE = 10000000;
-const PRICE_STEP = 1000000;
+export const MIN_PRICE = 0;
+export const MAX_PRICE = 10000000;
+export const PRICE_STEP = 1000000;
 
-const Filter = ({ brands, perfumeCollections }: FilterProps) => {
-  const [collectionSelectedNames, setCollectionSelectedNames] = useState<Set<string>>(new Set([]));
-  const [brandSelectedNames, setBrandSelectedNames] = useState<Set<string>>(new Set([]));
-  const [priceRange, setPriceRange] = useState<ReactRangeSliderInputProps['value']>([MIN_PRICE, MAX_PRICE]);
-
+const Filter = ({
+  brands,
+  perfumeCollections,
+  brandSelectedNames,
+  collectionSelectedNames,
+  priceRange,
+  onChange,
+  onSubmitFilter,
+}: FilterProps) => {
   return (
     <div className="flex flex-col gap-3">
       <Accordion
@@ -40,7 +55,8 @@ const Filter = ({ brands, perfumeCollections }: FilterProps) => {
                 } else {
                   newSet.add(target.accessKey);
                 }
-                setCollectionSelectedNames(newSet);
+
+                onChange('collections', newSet);
               }
             }}
           >
@@ -50,7 +66,10 @@ const Filter = ({ brands, perfumeCollections }: FilterProps) => {
                 className="event-delegation flex cursor-pointer gap-4"
                 accessKey={item.name}
               >
-                <Checkbox checked={collectionSelectedNames.has(item.name)} />
+                <Checkbox
+                  className="cursor-pointer"
+                  checked={collectionSelectedNames.has(item.name)}
+                />
 
                 <Label htmlFor={item._id}>{item.name}</Label>
               </div>
@@ -74,7 +93,7 @@ const Filter = ({ brands, perfumeCollections }: FilterProps) => {
                 } else {
                   newSet.add(target.accessKey);
                 }
-                setBrandSelectedNames(newSet);
+                onChange('brands', newSet);
               }
             }}
           >
@@ -84,7 +103,10 @@ const Filter = ({ brands, perfumeCollections }: FilterProps) => {
                 className="event-delegation flex cursor-pointer gap-4"
                 accessKey={item.name}
               >
-                <Checkbox checked={brandSelectedNames.has(item.name)} />
+                <Checkbox
+                  className="cursor-pointer"
+                  checked={brandSelectedNames.has(item.name)}
+                />
 
                 <Label htmlFor={item._id}>{item.name}</Label>
               </div>
@@ -99,7 +121,7 @@ const Filter = ({ brands, perfumeCollections }: FilterProps) => {
         step={PRICE_STEP}
         value={priceRange}
         onInput={(value) => {
-          setPriceRange(value);
+          onChange('pricerange', value);
         }}
         label={(value) => (
           <p className="mt-2">
@@ -108,6 +130,14 @@ const Filter = ({ brands, perfumeCollections }: FilterProps) => {
         )}
         size="small"
       />
+
+      <Button
+        onClick={() => {
+          onSubmitFilter();
+        }}
+      >
+        Filter
+      </Button>
     </div>
   );
 };
