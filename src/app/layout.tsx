@@ -3,6 +3,7 @@ import { getPerfumeCollections } from '@/api/perfumeCollections';
 import { getFulfilledResponse } from '@/api/utils';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import Provider from '@/components/Provider';
 import type { Metadata } from 'next';
 import { Dosis } from 'next/font/google';
 import './globals.css';
@@ -31,12 +32,15 @@ export default async function RootLayout({
       className="mdl-js"
     >
       <body className={`${dosis.variable} font-[family-name:var(--font-dosis)] antialiased`}>
-        <Header
-          brands={brands?.responseData?.data ?? []}
-          perfumeCollections={perfumeCollections?.responseData?.data ?? []}
-        />
-        {children}
-        <Footer perfumeCollections={perfumeCollections?.responseData?.data ?? []} />
+        <Provider>
+          {' '}
+          <Header
+            brands={brands?.responseData?.data ?? []}
+            perfumeCollections={perfumeCollections?.responseData?.data ?? []}
+          />
+          {children}
+          <Footer perfumeCollections={perfumeCollections?.responseData?.data ?? []} />
+        </Provider>
       </body>
     </html>
   );

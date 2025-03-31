@@ -1,12 +1,17 @@
+'use client';
+
+import { perfumeParamsConfigMap, PerfumeSeachParamsEnum } from '@/api/perfumes/types';
 import Accordion from '@/components/ui/Accordion';
+import { Button } from '@/components/ui/Button';
 import { Checkbox } from '@/components/ui/Checkbox';
 import InputRange from '@/components/ui/InputRange';
 import { Label } from '@/components/ui/Label';
-import { toVietNamCurrency } from '@/lib/utils';
+import { decodeQueryParams, toQueryString, toVietNamCurrency } from '@/lib/utils';
 import { IBrand } from '@/types/brand';
+import { IPerfumeFilter } from '@/types/perfume/filter';
 import { IPerffumeCollection } from '@/types/perfumeCollections';
+import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
-import { ReactRangeSliderInputProps } from 'react-range-slider-input';
 
 interface FilterProps {
   brands: IBrand[];
@@ -18,9 +23,29 @@ const MAX_PRICE = 10000000;
 const PRICE_STEP = 1000000;
 
 const Filter = ({ brands, perfumeCollections }: FilterProps) => {
-  const [collectionSelectedNames, setCollectionSelectedNames] = useState<Set<string>>(new Set([]));
-  const [brandSelectedNames, setBrandSelectedNames] = useState<Set<string>>(new Set([]));
-  const [priceRange, setPriceRange] = useState<ReactRangeSliderInputProps['value']>([MIN_PRICE, MAX_PRICE]);
+  const _searchParams = useSearchParams();
+  const searchParams = decodeQueryParams<IPerfumeFilter>(perfumeParamsConfigMap, _searchParams.toString());
+  console.log('searchParams', searchParams);
+  const [collectionSelectedNames, setCollectionSelectedNames] = useState<Set<string>>(
+    new Set(searchParams.collections ?? []),
+  );
+  const [brandSelectedNames, setBrandSelectedNames] = useState<Set<string>>(new Set(searchParams.brands ?? []));
+  const [priceRange, setPriceRange] = useState<[number, number]>([
+    searchParams.minPrice ?? MIN_PRICE,
+    searchParams.maxPrice ?? MAX_PRICE,
+  ]);
+
+  const onSubmitFilter = () => {
+    const _filterValues = {
+      [PerfumeSeachParamsEnum.brands]: [...brandSelectedNames],
+      [PerfumeSeachParamsEnum.collections]: [...collectionSelectedNames],
+      [PerfumeSeachParamsEnum.minPrice]: priceRange[0],
+      [PerfumeSeachParamsEnum.maxPrice]: priceRange[1],
+    };
+
+    const queryString = toQueryString(perfumeParamsConfigMap, _filterValues);
+    window.history.pushState('', '', `?${queryString}`);
+  };
 
   return (
     <div className="flex flex-col gap-3">
@@ -51,7 +76,6 @@ const Filter = ({ brands, perfumeCollections }: FilterProps) => {
                 accessKey={item.name}
               >
                 <Checkbox checked={collectionSelectedNames.has(item.name)} />
-
                 <Label htmlFor={item._id}>{item.name}</Label>
               </div>
             ))}
@@ -108,6 +132,14 @@ const Filter = ({ brands, perfumeCollections }: FilterProps) => {
         )}
         size="small"
       />
+
+      <Button
+        onClick={() => {
+          onSubmitFilter();
+        }}
+      >
+        Filter
+      </Button>
     </div>
   );
 };
