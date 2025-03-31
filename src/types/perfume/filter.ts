@@ -1,8 +1,8 @@
 import { IPagination } from '../pagination';
 
 export interface IPerfumeFilter extends IPagination {
-  brand?: string[];
-  collection?: string[];
+  brands?: string[];
+  collections?: string[];
   minPrice?: number;
   maxPrice?: number;
 }
