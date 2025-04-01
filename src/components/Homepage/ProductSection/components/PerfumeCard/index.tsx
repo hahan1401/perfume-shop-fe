@@ -12,7 +12,7 @@ const PerfumeCard = ({ item }: PerfumeCardProps) => {
   return (
     <Link
       href={`/product/${encodeURIComponent(item.name)}`}
-      className={cn(styles.perfumeCardWrapper)}
+      className={cn(styles.perfumeCardWrapper, 'shadow-xl')}
     >
       <div className="product-image-wrapper p-4">
         <Image

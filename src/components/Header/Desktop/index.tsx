@@ -9,7 +9,9 @@ import { DestopHeaderProps } from './types';
 
 const DesktopHeader = ({ brands, perfumeCollections, isAtTopPage }: DestopHeaderProps) => {
   return (
-    <div className={cn(`items-center justify-between px-10 py-4`, 'hidden md:flex')}>
+    <div
+      className={cn(`items-center justify-between px-10 py-4`, 'hidden md:flex', isAtTopPage ? 'bg-primary/10' : '')}
+    >
       <Image
         src={'/logo.png'}
         alt=""
@@ -19,13 +21,13 @@ const DesktopHeader = ({ brands, perfumeCollections, isAtTopPage }: DestopHeader
 
       <div className="flex items-center gap-4">
         <Link
-          className={isAtTopPage ? 'text-primary-foreground' : 'text-primary'}
+          className={'text-primary'}
           href={'/'}
         >
           Home
         </Link>
         <Link
-          className={isAtTopPage ? 'text-primary-foreground' : 'text-primary'}
+          className={'text-primary'}
           href={'/'}
         >
           About
@@ -33,7 +35,7 @@ const DesktopHeader = ({ brands, perfumeCollections, isAtTopPage }: DestopHeader
         <HoverCard>
           <HoverCardTrigger>
             <Link
-              className={isAtTopPage ? 'text-primary-foreground' : 'text-primary'}
+              className={'text-primary'}
               href={'/'}
             >
               Collections
@@ -53,7 +55,7 @@ const DesktopHeader = ({ brands, perfumeCollections, isAtTopPage }: DestopHeader
         <HoverCard>
           <HoverCardTrigger>
             <Link
-              className={isAtTopPage ? 'text-primary-foreground' : 'text-primary'}
+              className={'text-primary'}
               href={'/'}
             >
               Brands
@@ -71,13 +73,13 @@ const DesktopHeader = ({ brands, perfumeCollections, isAtTopPage }: DestopHeader
           </HoverCardContent>
         </HoverCard>
         <Link
-          className={isAtTopPage ? 'text-primary-foreground' : 'text-primary'}
+          className={'text-primary'}
           href={'/'}
         >
           News
         </Link>
         <Link
-          className={isAtTopPage ? 'text-primary-foreground' : 'text-primary'}
+          className={'text-primary'}
           href={'/'}
         >
           Contact

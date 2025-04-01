@@ -5,12 +5,13 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Provider from '@/components/Provider';
 import type { Metadata } from 'next';
-import { Dosis } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 import './globals.css';
 
-const dosis = Dosis({
-  variable: '--font-dosis',
+const roboto = Roboto({
+  variable: '--font-roboto',
   subsets: ['latin'],
+  weight: ['400', '700'],
 });
 
 export const metadata: Metadata = {
@@ -31,7 +32,7 @@ export default async function RootLayout({
       lang="en"
       className="mdl-js"
     >
-      <body className={`${dosis.variable} font-[family-name:var(--font-dosis)] antialiased`}>
+      <body className={`${roboto.variable} bg-secondary/60 font-[family-name:var(--font-roboto)] antialiased`}>
         <Provider>
           {' '}
           <Header

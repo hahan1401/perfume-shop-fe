@@ -15,3 +15,6 @@ export const getPerfumes = ({
   fetcher(`${ENDPOINTS.PERFUMES}?${toQueryString(perfumeParamsConfigMap, { pageIndex, pageSize, ...filter })}`).then(
     (resp) => parseResponseData<IPerfume[]>(resp),
   );
+
+export const getPerfumeByName = (name: string) =>
+  fetcher(`${ENDPOINTS.PERFUMES}/${name}`).then((resp) => parseResponseData<IPerfume>(resp));

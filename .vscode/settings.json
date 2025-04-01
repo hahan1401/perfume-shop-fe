@@ -4,7 +4,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[svg]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "jock.svg"
   },
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

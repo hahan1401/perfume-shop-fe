@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 
 import { IPerfume } from '@/types/perfume';
-import { ArrayParam, NumberParam, QueryParamConfigMap, StringParam } from 'serialize-query-params';
+import { NumberParam, QueryParamConfigMap, StringParam } from 'serialize-query-params';
 import { CommaArrayParam } from '../customParams';
 import { PaginationEnum } from '../types/common';
 
@@ -24,7 +24,7 @@ export const perfumeParamsConfigMap: Record<TPerfumeSearchParams, unknown> exten
   ? Record<TPerfumeSearchParams, unknown>
   : QueryParamConfigMap = {
   brands: CommaArrayParam,
-  collections: ArrayParam,
+  collections: CommaArrayParam,
   maxPrice: NumberParam,
   minPrice: NumberParam,
   name: StringParam,

@@ -1,8 +1,10 @@
+import { IPrices } from '../common';
+
 export interface IPerfume {
   _id: string;
   name: string;
   description: string;
-  price: number;
+  prices: IPrices[];
   categories: string[];
   brand: string;
   collection: string;
